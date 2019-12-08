@@ -1,20 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
+
+import { productsData } from '../../mock/products';
+
+import ProductCard from '../components/product-card';
 
 const Products = () => {
-  const Title = styled.h1`
-    color: ${(props) => (props.red ? 'red' : 'blue')};
-    font-size: 16px;
-    margin: 10px;
-    padding: 5px;
-    font-family: verdana;
-  `;
-  return (
-    <div>
-      <Title>Hello World</Title>
-      <Title red>Hello World</Title>
-    </div>
-  );
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(productsData);
+  }, []);
+
+  return <ProductCard products={products} />;
 };
 
 export default Products;
