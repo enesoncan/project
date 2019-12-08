@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import { SortContext } from '../context/sort-context';
+import { FilterContext } from '../context/filter-context';
 
 const Card = styled.div`
   position: relative;
   display: inline-block;
   width: 160px;
-  margin: 0 0 30px 40px;
+  margin: 0 0 30px 30px;
   font-family: helvetica-light;
 `;
 
@@ -49,6 +50,7 @@ const Price = styled.p`
 
 const ProductCard = ({ products }) => {
   const { sortType } = useContext(SortContext);
+  const { filterValue } = useContext(FilterContext);
 
   const sorted = products.sort((a, b) => {
     if (sortType === 'desc') {
@@ -60,21 +62,35 @@ const ProductCard = ({ products }) => {
 
   return (
     <>
-      {Object.values(sorted).map((product) => {
-        const { id, imageUrl, badges, name, price } = product.products;
-        return (
-          <Card key={id}>
-            <PictureWrapper>
-              <Picture src={imageUrl} />
-              {badges.map((badge, index) => {
-                return <Badge key={index}>{badge}</Badge>;
-              })}
-            </PictureWrapper>
-            <Title>{name}</Title>
-            <Price>{`$${price}`}</Price>
-          </Card>
-        );
-      })}
+      {Object.values(sorted)
+        .filter((val) => {
+          const { badges } = val.products;
+          for (let i = 0; i < badges.length; i++) {
+            if (i === 2) {
+              break;
+            }
+            if (badges[i] === filterValue) {
+              return badges;
+            } else if (!filterValue) {
+              return badges;
+            }
+          }
+        })
+        .map((product) => {
+          const { id, imageUrl, badges, name, price } = product.products;
+          return (
+            <Card key={id}>
+              <PictureWrapper>
+                <Picture src={imageUrl} />
+                {badges.map((badge, index) => {
+                  return <Badge key={index}>{badge}</Badge>;
+                })}
+              </PictureWrapper>
+              <Title>{name}</Title>
+              <Price>{`$${price}`}</Price>
+            </Card>
+          );
+        })}
     </>
   );
 };
