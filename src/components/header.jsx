@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import { SortContext } from '../context/sort-context';
+import { SortContext } from '../contexts/sortContext';
 
-const Header = styled.div`
+const HeaderBox = styled.div`
   width: 100%;
   display: block;
   position: relative;
@@ -57,10 +57,10 @@ const Select = styled.select`
   }
 `;
 
-const ProductHeader = () => {
+const Header = () => {
   const { changeSortValue } = useContext(SortContext);
   return (
-    <Header>
+    <HeaderBox>
       <Wrapper>
         <Category>Women</Category>
         <Sort>
@@ -74,8 +74,8 @@ const ProductHeader = () => {
           </Select>
         </Sort>
       </Wrapper>
-    </Header>
+    </HeaderBox>
   );
 };
 
-export default ProductHeader;
+export default Header;
