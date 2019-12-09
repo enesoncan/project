@@ -15,7 +15,7 @@ const CardWrapper = styled.div`
 const PictureWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 340px;
+  height: 310px;
 `;
 
 const Picture = styled.img`
