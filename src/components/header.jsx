@@ -14,9 +14,11 @@ const HeaderBox = styled.div`
 `;
 
 const Wrapper = styled.div`
-    padding: 0 90px;
     display flex;
     height: 40px;
+    padding: 0 90px;
+    margin: 0 auto;
+    max-width: 920px;
     align-items: center;
     justify-content: space-between;
   `;
