@@ -4,7 +4,10 @@ import styled from 'styled-components';
 const CardWrapper = styled.div`
   position: relative;
   display: inline-block;
-  width: 160px;
+  width: 28%;
+  @media (max-width: 900px) {
+    width: 40%;
+  }
   margin: 0 0 30px 30px;
   font-family: helvetica-light;
 `;
@@ -12,7 +15,7 @@ const CardWrapper = styled.div`
 const PictureWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 240px;
+  height: 340px;
 `;
 
 const Picture = styled.img`

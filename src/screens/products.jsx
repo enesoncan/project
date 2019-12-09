@@ -12,18 +12,20 @@ import FilterContextProvider from '../contexts/filterContext';
 
 const Wrapper = styled.div`
   display: flex;
-  position: relative;
+  margin: 0 auto;
   padding: 0 90px;
+  max-width: 920px;
+  position: relative;
 `;
 
 const LeftColumn = styled.div`
-  width: 20%;
+  width: 25%;
   position: relative;
   display: inline-flex;
 `;
 
 const RightColumn = styled.div`
-  width: 80%;
+  width: 75%;
   position: relative;
   display: block;
 `;
