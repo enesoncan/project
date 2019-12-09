@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Products from '../src/pages/products';
+import Products from '../src/screens/products';
 
 const Body = styled.body`
   margin: 0;

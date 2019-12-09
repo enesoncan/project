@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { FilterContext } from '../context/filter-context';
+
+import { FilterContext } from '../contexts/filterContext';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -53,7 +54,7 @@ const Input = styled.input`
   margin-right: 5px;
 `;
 
-const ProductFilter = () => {
+const Filter = () => {
   const { changeFilterValue, filterValue, resetValue } = useContext(FilterContext);
   return (
     <Wrapper>
@@ -75,4 +76,4 @@ const ProductFilter = () => {
   );
 };
 
-export default ProductFilter;
+export default Filter;
