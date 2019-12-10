@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-
-import { mockData } from '../../mock/products';
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import Header from '../components/header';
 import Filter from '../components/filter';
@@ -9,6 +7,12 @@ import ProductList from '../components/productList';
 
 import SortContextProvider from '../contexts/sortContext';
 import FilterContextProvider from '../contexts/filterContext';
+
+const GlobalStyle = createGlobalStyle`
+body {
+  margin: 0;
+}
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -30,15 +34,10 @@ const RightColumn = styled.div`
   display: block;
 `;
 
-const Products = () => {
-  const [productsData, setProductsData] = useState([]);
-
-  useEffect(() => {
-    setProductsData(mockData);
-  }, []);
-
+const Products = ({ productsData }) => {
   return (
     <>
+      <GlobalStyle />
       <SortContextProvider>
         <Header />
         <Wrapper>
