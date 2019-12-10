@@ -8,7 +8,7 @@ const Index = (props) => {
 };
 
 Index.getInitialProps = async () => {
-  const data = await fetch('https://cimri-products.free.beeceptor.com/cimri/api/products');
+  const data = await fetch('https://cimri-case.free.beeceptor.com/products');
   const result = await data.json();
 
   return {
