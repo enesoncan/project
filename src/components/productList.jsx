@@ -9,7 +9,9 @@ const ProductList = ({ productsData }) => {
   const { sortType } = useContext(SortContext);
   const { filterValue } = useContext(FilterContext);
 
-  const sorted = productsData.sort((a, b) => {
+  const { products } = productsData;
+
+  const sorted = products.sort((a, b) => {
     if (sortType === 'desc') {
       return b.products.price - a.products.price;
     } else if (sortType === 'asc') {

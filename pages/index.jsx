@@ -1,18 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import fetch from 'isomorphic-unfetch';
 
 import Products from '../src/screens/products';
 
-const Body = styled.body`
-  margin: 0;
-`;
-
-const Index = () => {
-  return (
-    <Body>
-      <Products />
-    </Body>
-  );
+const Index = (props) => {
+  return <Products productsData={props} />;
 };
 
+Index.getInitialProps = async () => {
+  const data = await fetch('https://cimri-products.free.beeceptor.com/cimri/api/products');
+  const result = await data.json();
+
+  return {
+    products: result,
+  };
+};
 export default Index;
