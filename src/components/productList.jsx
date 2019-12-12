@@ -24,9 +24,6 @@ const ProductList = ({ productsData }) => {
         .filter((val) => {
           const { badges } = val.products;
           for (let i = 0; i < badges.length; i++) {
-            if (i === 2) {
-              break;
-            }
             if (badges[i] === filterValue) {
               return badges;
             } else if (!filterValue) {
