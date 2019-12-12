@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 
 import Card from './card';
 
@@ -9,9 +10,7 @@ const ProductList = ({ productsData }) => {
   const { sortType } = useContext(SortContext);
   const { filterValue } = useContext(FilterContext);
 
-  const { products } = productsData;
-
-  const sorted = products.sort((a, b) => {
+  const sorted = productsData.sort((a, b) => {
     if (sortType === 'desc') {
       return b.products.price - a.products.price;
     } else if (sortType === 'asc') {
@@ -37,7 +36,13 @@ const ProductList = ({ productsData }) => {
         })
         .map((product) => {
           const { id, imageUrl, badges, name, price } = product.products;
-          return <Card key={id} imageUrl={imageUrl} badges={badges} name={name} price={price} />;
+          return (
+            <Link href={`/detail?id=${id}`} key={id}>
+              <a>
+                <Card imageUrl={imageUrl} badges={badges} name={name} price={price} />
+              </a>
+            </Link>
+          );
         })}
     </>
   );

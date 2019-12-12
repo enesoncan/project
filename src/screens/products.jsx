@@ -12,6 +12,18 @@ const GlobalStyle = createGlobalStyle`
 body {
   margin: 0;
 }
+
+a{
+  position: relative;
+  display: inline-block;
+  width: 28%;
+  @media (max-width: 900px) {
+    width: 40%;
+  }
+  margin: 0 0 30px 30px;
+  font-family: helvetica-light;
+  text-decoration: none;
+}
 `;
 
 const Wrapper = styled.div`
