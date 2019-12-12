@@ -1,10 +1,10 @@
 import React from 'react';
 import fetch from 'isomorphic-unfetch';
 
-import Products from '../src/screens/products';
+import ProductSearch from '../src/screens/productSearch';
 
 const Index = ({ products }) => {
-  return <Products productsData={products} />;
+  return <ProductSearch productsData={products} />;
 };
 
 Index.getInitialProps = async () => {
