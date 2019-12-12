@@ -46,7 +46,7 @@ const RightColumn = styled.div`
   display: block;
 `;
 
-const Products = ({ productsData }) => {
+const ProductSearch = ({ productsData }) => {
   return (
     <>
       <GlobalStyle />
@@ -67,4 +67,4 @@ const Products = ({ productsData }) => {
   );
 };
 
-export default Products;
+export default ProductSearch;
