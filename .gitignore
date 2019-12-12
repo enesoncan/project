@@ -5,9 +5,6 @@
 #NexT
 /.next
 
-# Production
-/build
-
 # Editor
 .vscode
 
